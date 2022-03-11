@@ -37,32 +37,21 @@ func merge(left []int, right []int) []int {
 		result[resultIndex] = right[rIndex]
 		resultIndex++
 		rIndex++
-		continue
 	}
 
 	// now either left or right will have been fully checked
 	// so make sure to account for the remaining elements
 
-	for {
-		if lIndex < leftLength {
-			result[resultIndex] = left[lIndex]
-			resultIndex++
-			lIndex++
-			continue
-		}
-
-		break
+	for lIndex < leftLength {
+		result[resultIndex] = left[lIndex]
+		resultIndex++
+		lIndex++
 	}
 
-	for {
-		if rIndex < rightLength {
-			result[resultIndex] = right[rIndex]
-			resultIndex++
-			rIndex++
-			continue
-		}
-
-		break
+	for rIndex < rightLength {
+		result[resultIndex] = right[rIndex]
+		resultIndex++
+		rIndex++
 	}
 
 	return result
