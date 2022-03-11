@@ -11,9 +11,7 @@ func Merge(items []int) []int {
 
 	left, right := items[:halfWay], items[halfWay:]
 
-	recursiveLeft, recursiveRight := Merge(left), Merge(right)
-
-	return merge(recursiveLeft, recursiveRight)
+	return merge(Merge(left), Merge(right))
 }
 
 func merge(left []int, right []int) []int {
@@ -22,11 +20,7 @@ func merge(left []int, right []int) []int {
 
 	lIndex, rIndex, resultIndex := 0, 0, 0
 
-	for {
-		if lIndex >= leftLength || rIndex >= rightLength {
-			break
-		}
-
+	for lIndex >= leftLength || rIndex >= rightLength {
 		if left[lIndex] < right[rIndex] {
 			result[resultIndex] = left[lIndex]
 			resultIndex++
